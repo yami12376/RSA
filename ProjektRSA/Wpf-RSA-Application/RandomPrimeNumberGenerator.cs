@@ -10,25 +10,21 @@ namespace Wpf_RSA_Application
     class RandomPrimeNumberGenerator
     {
         private Random random;
-        private long primeNumber;
+        private List<long> primeNumbers;
         public RandomPrimeNumberGenerator()
         {
-            primeNumber = generatePrimeNumber();
         }
 
-        public long generatePrimeNumber()
+        public List<long> generateTwoPrimeNumbers()
         {
             SieveofEratosthenes s = new SieveofEratosthenes();
             List<long> primeNumbersList = s.RunAlgorithm();
             int primeNumbersCount = primeNumbersList.Count();
-            random = new Random();
-            return primeNumbersList.ElementAt(random.Next(primeNumbersCount-1000, primeNumbersCount+1)); // Inclusive with primeNumbersCount
+            random = new Random(); 
+            primeNumbers.Add(primeNumbersList.ElementAt(random.Next(primeNumbersCount - 1000, primeNumbersCount + 1))); // Inclusive with primeNumbersCount
+            primeNumbers.Add(primeNumbersList.ElementAt(random.Next(primeNumbersCount - 1000, primeNumbersCount + 1)));
+
+            return primeNumbers; 
         }
-
-
-
-
-
-
     }
 }
