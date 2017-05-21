@@ -59,6 +59,7 @@
     <Compile Include="Utilities\RsaAlgorithm.cs" />
     <Compile Include="Utilities\RandomPrimeNumberGenerator.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Utilities\RsaProvider.cs" />
     <Compile Include="Utilities\SieveofEratosthenes.cs" />
     <Page Include="Views\ChartWindow.xaml">
       <SubType>Designer</SubType>
@@ -73,7 +74,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ViewModels\BaseViewModel.cs" />
-    <Compile Include="ViewModels\RsaCommunicationViewModel.cs" />
+    <Compile Include="ViewModels\RsaViewModel.cs" />
     <Compile Include="Views\ChartWindow.xaml.cs">
       <DependentUpon>ChartWindow.xaml</DependentUpon>
     </Compile>
