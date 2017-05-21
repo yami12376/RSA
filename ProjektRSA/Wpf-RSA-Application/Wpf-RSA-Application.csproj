@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Rsa.cs" />
-    <Compile Include="Utilities\Algorithm.cs" />
+    <Compile Include="Utilities\RsaAlgorithm.cs" />
     <Compile Include="Utilities\RandomPrimeNumberGenerator.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Models\SieveofEratosthenes.cs" />
