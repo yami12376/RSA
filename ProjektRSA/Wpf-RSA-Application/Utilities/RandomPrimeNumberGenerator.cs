@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace Wpf_RSA_Application.Operations
+namespace Wpf_RSA_Application.Utilities
 {
     internal class RandomPrimeNumberGenerator
     {

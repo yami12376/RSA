@@ -7,14 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Wpf_RSA_Application.Annotations;
 
-namespace Wpf_RSA_Application.Operations
+namespace Wpf_RSA_Application.Utilities
 {
-    internal class SieveOfEratosthenes : INotifyPropertyChanged
+    internal class SieveOfEratosthenes
     {
-        private const long N = 9 * 1234567l;
+        private const long N = 9 * 1234567L;
         private bool[] _tableOfNumbers;
         private List<long> _primeNumbersList;
 
+        //to musi isc poza model
         public List<long> Run()
         {
             _primeNumbersList = new List<long>();
@@ -50,14 +51,6 @@ namespace Wpf_RSA_Application.Operations
                                                             //Example:
                                                             //e[4], e[100] will all be false since 2,4,100 are not primes
                                                             //e[5], e[7], e[11], e[13] will all be true because 5,7,11,13 are all prime numbers
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
