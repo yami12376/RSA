@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Wpf_RSA_Application.Utilities
 {
-    internal class RsaAlgorithm
+    internal class Algorithm
     {
         //trzeba ustalic, co to robi i zmienic nazwe
         private RandomPrimeNumberGenerator _randomPrimeNumberGenerator;
