@@ -5,26 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_RSA_Application.Views"
         mc:Ignorable="d"
-        Title="RSA Analyzer" Height="350" Width="525">
+        Title="RSA Analyzer" Height="450" Width="530">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="2"></StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Margin="15,5,15,5">
+            <Label Content="Please provide input data as listed for further analysis"></Label>
+        </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="15">
-            
+            <Label Content="First prime number"></Label>
+            <TextBox Margin="15,5,15,5"></TextBox>
+            <Label Content="Second prime number"></Label>
+            <TextBox Margin="15,5,15,5"></TextBox>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="15">
-            
+            <Label Content="Public key:"></Label>
+            <Label Content="" Margin="15,5,15,5" Height="18"></Label>
+            <Label Content="Private key:"></Label>
+            <Label Content="" Margin="15,5,15,5" Height="18"></Label>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Margin="15">
             
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Margin="15">
+            <Button Content="Generate primes"></Button>
+            <Button Content="Run analysis"></Button>
+            <Button Content="Display time chart"></Button>
         </StackPanel>
     </Grid>
 </Window>

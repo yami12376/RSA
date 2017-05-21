@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Wpf_RSA_Application.Utilities
 {
-    internal class Algorithm
+    internal class RsaAlgorithm
     {
         //trzeba ustalic, co to robi i zmienic nazwe
         private RandomPrimeNumberGenerator _randomPrimeNumberGenerator;
