@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Security.RightsManagement;
+using System.Windows.Input;
 using Wpf_RSA_Application.Models;
 using Wpf_RSA_Application.Utilities;
 
@@ -6,12 +7,23 @@ namespace Wpf_RSA_Application.ViewModels
 {
     internal class RsaViewModel : BaseViewModel
     {
+        private Rsa _rsa;
         private ushort _n;
         private ushort _e;
         private int _d;
         private byte _plainByte;
         private int _encryptedByte;
         private int _decryptedByte;
+
+        public Rsa Rsa
+        {
+            get => _rsa;
+            set
+            {
+                _rsa = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ushort N
         {
@@ -83,13 +95,50 @@ namespace Wpf_RSA_Application.ViewModels
             N = values.Item1;
             E = values.Item2;
             D = values.Item3;
+
+            Rsa = Current(N, E, D);
+            FileOperator.SaveToFile("paniLodzia.txt", Rsa);
         }
 
-        public void RunAlgorithm()
+        private ICommand _generatePrimes;
+        private ICommand _encryptByte;
+        private ICommand _decryptByte;
+
+        public ICommand GeneratePrimes
         {
-            var result = new RsaProvider();
-            EncryptedByte = result.EncryptValue(PlainByte, E, N);
-            DecryptedByte = result.DecryptValue(EncryptedByte, D, N);
+            get
+            {
+                return _generatePrimes ?? (_generatePrimes = new RelayCommand(
+                           param => GetRsaValues()
+                       ));
+            }
+        }
+
+        public ICommand EncryptByte
+        {
+            get
+            {
+                var result = new RsaProvider();
+                return _encryptByte ?? (_encryptByte = new RelayCommand(
+                           param => result.EncryptValue(PlainByte, E, N)
+                       ));
+            }
+        }
+
+        public ICommand DecryptByte
+        {
+            get
+            {
+                var result = new RsaProvider();
+                return _decryptByte ?? (_decryptByte = new RelayCommand(
+                           param => result.DecryptValue(EncryptedByte, D, N)
+                       ));
+            }
+        }
+
+        public Rsa Current(ushort n, ushort e, int d)
+        {
+            return new Rsa { N = n, E = e, D = d };
         }
     }
 }

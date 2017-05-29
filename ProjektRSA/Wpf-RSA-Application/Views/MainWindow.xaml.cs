@@ -11,17 +11,5 @@ namespace Wpf_RSA_Application.Views
         {
             InitializeComponent();
         }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            var lol = new ViewModels.RsaViewModel();
-            lol.RunAlgorithm();
-        }
-
-        private void ButtonBase2_OnClick(object sender, RoutedEventArgs e)
-        {
-            var lol = new ViewModels.RsaViewModel();
-            lol.GetRsaValues();
-        }
     }
 }

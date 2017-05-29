@@ -30,8 +30,8 @@
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="15">
             <Label Content="Insert number [0-255]:"></Label>
             <TextBox Text="{Binding PlainByte}" Margin="15,5,15,5"></TextBox>
-            <Button Content="Generate primes" Margin="15,25,15,0" Click="ButtonBase2_OnClick"></Button>
-            <Button Content="Encrypt given byte" Margin="15,5,15,0" Click="ButtonBase_OnClick"></Button>
+            <Button Content="Generate primes" Margin="15,25,15,0" Command="{Binding GeneratePrimes}"></Button>
+            <Button Content="Encrypt given byte" Margin="15,5,15,0" Command="{Binding EncryptByte}"></Button>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Margin="15" Background="LightGray">
             <Label Content="Public key:"></Label>
@@ -42,7 +42,7 @@
         <StackPanel Grid.Row="2" Grid.Column="0"  Margin="15">
             <Label Content="Encrypted number:"></Label>
             <TextBox Text="{Binding EncryptedByte}" Margin="15,5,15,5"></TextBox>
-            <Button Content="Decrypt encrypted byte" Margin="15,25,15,0"></Button>
+            <Button Content="Decrypt encrypted byte" Margin="15,25,15,0" Command="{Binding DecryptByte}"></Button>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1"  Margin="15">
             <Label Content="Decrypted number:"></Label>

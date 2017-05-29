@@ -40,12 +40,14 @@ namespace Wpf_RSA_Application.Utilities
             var u3 = a;
             var v1 = 0;
             var v3 = b;
+
             while (v3 > 0)
             {
                 var q0 = u3 / v3;
                 var q1 = u3 % v3;
                 var tmp = v1 * q0;
                 var tn = u1 - tmp;
+
                 u1 = v1;
                 v1 = tn;
                 u3 = v3;
