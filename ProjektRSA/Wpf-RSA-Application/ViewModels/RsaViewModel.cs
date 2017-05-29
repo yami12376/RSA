@@ -1,5 +1,4 @@
-﻿using System.Security.RightsManagement;
-using System.Windows.Input;
+﻿using System.Windows.Input;
 using Wpf_RSA_Application.Models;
 using Wpf_RSA_Application.Utilities;
 
@@ -89,14 +88,14 @@ namespace Wpf_RSA_Application.ViewModels
 
         public string PrivateKey => $"Pair: d = {D}, n = {N}";
 
-        public void GetRsaValues()
+        public void PrepareRsa()
         {
             var values = RsaProvider.Run();
             N = values.Item1;
             E = values.Item2;
             D = values.Item3;
 
-            Rsa = Current(N, E, D);
+            Rsa = new Rsa(N, E, D);
             FileOperator.SaveToFile("paniLodzia.txt", Rsa);
         }
 
@@ -109,7 +108,7 @@ namespace Wpf_RSA_Application.ViewModels
             get
             {
                 return _generatePrimes ?? (_generatePrimes = new RelayCommand(
-                           param => GetRsaValues()
+                           param => PrepareRsa()
                        ));
             }
         }
@@ -134,11 +133,6 @@ namespace Wpf_RSA_Application.ViewModels
                            param => result.DecryptValue(EncryptedByte, D, N)
                        ));
             }
-        }
-
-        public Rsa Current(ushort n, ushort e, int d)
-        {
-            return new Rsa { N = n, E = e, D = d };
         }
     }
 }
