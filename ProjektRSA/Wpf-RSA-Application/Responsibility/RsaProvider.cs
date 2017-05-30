@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Wpf_RSA_Application.Utilities
 {
-    internal class RsaProvider
+    public class RsaProvider
     {
         private static readonly Random Random = new Random();
 

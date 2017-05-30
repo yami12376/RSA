@@ -1,6 +1,6 @@
 ﻿namespace Wpf_RSA_Application.Models
 {
-    class Rsa
+    public class Rsa
     {
         public ushort N { get; set; }
         public ushort E { get; set; }

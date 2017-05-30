@@ -4,7 +4,7 @@ using Wpf_RSA_Application.Utilities;
 
 namespace Wpf_RSA_Application.ViewModels
 {
-    internal class RsaViewModel : BaseViewModel
+    public class RsaViewModel : BaseViewModel
     {
         private Rsa _rsa;
         private ushort _n;
@@ -85,7 +85,6 @@ namespace Wpf_RSA_Application.ViewModels
         }
 
         public string PublicKey => $"Pair: n = {N}, e = {E}";
-
         public string PrivateKey => $"Pair: d = {D}, n = {N}";
 
         public void PrepareRsa()
@@ -108,7 +107,12 @@ namespace Wpf_RSA_Application.ViewModels
             get
             {
                 return _generatePrimes ?? (_generatePrimes = new RelayCommand(
-                           param => PrepareRsa()
+                           param =>
+                           {
+                               PrepareRsa();
+                               OnPropertyChanged(nameof(PublicKey));
+                               OnPropertyChanged(nameof(PrivateKey));
+                           }
                        ));
             }
         }
@@ -119,7 +123,11 @@ namespace Wpf_RSA_Application.ViewModels
             {
                 var result = new RsaProvider();
                 return _encryptByte ?? (_encryptByte = new RelayCommand(
-                           param => result.EncryptValue(PlainByte, E, N)
+                           param =>
+                           {
+                               result.EncryptValue(PlainByte, E, N);
+                               OnPropertyChanged(nameof(PlainByte));
+                           }
                        ));
             }
         }
@@ -130,7 +138,11 @@ namespace Wpf_RSA_Application.ViewModels
             {
                 var result = new RsaProvider();
                 return _decryptByte ?? (_decryptByte = new RelayCommand(
-                           param => result.DecryptValue(EncryptedByte, D, N)
+                           param =>
+                           {
+                               result.DecryptValue(EncryptedByte, D, N);
+                               OnPropertyChanged(nameof(EncryptByte));
+                           }
                        ));
             }
         }

@@ -4,7 +4,7 @@ using Wpf_RSA_Application.Models;
 
 namespace Wpf_RSA_Application.Utilities
 {
-    class FileOperator
+    public class FileOperator
     {
         public static void SaveToFile(string fileName, Rsa rsa)
         {

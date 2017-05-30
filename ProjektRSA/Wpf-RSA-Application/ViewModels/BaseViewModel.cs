@@ -4,7 +4,7 @@ using Wpf_RSA_Application.Annotations;
 
 namespace Wpf_RSA_Application.ViewModels
 {
-    class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
